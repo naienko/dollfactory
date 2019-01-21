@@ -21,12 +21,14 @@ const dollFactory = dolls => {
 
 const hairMachine = doll => {
     doll.hasHair = true;
-    if (doll.eyeColor === "Green") || doll.eyeColor === "Brown" {
+    if (doll.eyeColor === "Green" || doll.eyeColor === "Brown") {
         doll.hairColor = "Brown";
     } else {
         doll.hairColor = "Blond";
     }
 }
+
+dollFactory(dollBin);
 
 console.log(dollBin);
 
@@ -34,3 +36,21 @@ console.log(dollBin);
 // 2. Define a `printDoll` function that takes the HTML representation of the doll and prints it to the DOM :printer:
 // 3. Hint: you may need FlexBox to make the cards to line up nicely
 
+const createDollComponent = dolls => {
+    dollList = "";
+    dolls.forEach(doll => {
+        dollList += `<section class="dollBox">
+            <h2>${doll.name}</h2>
+            <p class="${doll.eyeColor}">${doll.eyeColor} eyes</p>
+            <p>${doll.hairColor} hair</p>
+        </section>`;
+    });
+}
+
+const printDoll = () => {
+    createDollComponent(dollBin);
+    let dollStore = document.querySelector("#dollList");
+    dollStore.innerHTML = dollList;
+}
+
+printDoll();

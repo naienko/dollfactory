@@ -1,0 +1,19 @@
+#dollList {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.dollBox {
+    border: 2px solid pink;
+    flex-basis: 30%;
+    text-align: center;
+}
+.Green {
+    color: green;
+}
+.Blue {
+    color: blue;
+}
+.Brown {
+    color: brown;
+}
