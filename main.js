@@ -54,3 +54,67 @@ const printDoll = () => {
 }
 
 printDoll();
+
+
+////
+
+// Jenna's code
+const dollFactory = dolls => {
+    dolls.forEach(doll => {
+      hairMachine(doll)
+    })
+    return dolls
+  }
+  
+  const hairMachine = doll => {
+      doll.hasHair = true
+    if (doll.eyeColor === "Green" || doll.eyeColor === "Brown") {
+      doll.hairColor = "Brown"
+    } else {
+      doll.hairColor = "Blonde"
+    }
+  }
+
+  // Meg's code
+
+  const dollBin = [
+    { name: "Jessica", eyeColor: "Green", hasHair: false },
+    { name: "Meg", eyeColor: "Brown", hasHair: false },
+    { name: "Steve", eyeColor: "Blue", hasHair: false }
+  ]
+  
+  const dollFactory = dolls => {
+    dolls.forEach(doll => {
+      hairMachine(doll)
+  
+      const dollHTML = createDollComponent(doll)
+      printDoll(dollHTML)
+      //printDoll(createDollComponent(doll))
+    })
+  }
+  
+  const hairMachine = doll => {
+    if (doll.eyeColor === "Green" || doll.eyeColor === "Brown") {
+      doll.hasHair = true
+      doll.hairColor = "Brown"
+    } else {
+      doll.hasHair = true
+      doll.hairColor = "Blonde"
+    }
+  }
+  
+  const createDollComponent = completedDoll => {
+      return `
+      <div class="dollCard">
+          <h2>${completedDoll.name}</h2>
+          <p class=${completedDoll.eyeColor}>${completedDoll.eyeColor} eyes</p>
+          <p>${completedDoll.hairColor} hair</p>
+      </div>
+      `
+  }
+      
+  const printDoll = dollHTML => {
+      document.querySelector("#dollListing").innerHTML += dollHTML
+  }
+  
+  dollFactory(dollBin)
